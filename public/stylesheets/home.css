@@ -1,0 +1,153 @@
+@charset "utf-8";
+body{
+	height:100%
+}
+body h3 {
+	color: #B5DA47;
+	text-align: center;
+	font-family: 'Oswald', sans-serif;
+	font-size:310%;
+	font-weight:normal;
+}
+body h1, p{
+	text-align: center;
+	font-family: 'Oswald', sans-serif;
+	/* padding-bottom: 0;
+	margin-bottom:0;
+	border-bottom: 0; */
+}
+body input{
+	margin:0 auto 0 auto;
+	display:block;
+	line-height: 300%;
+	width:50%;
+}
+div#panel{
+    position:absolute;
+	left:0;
+	top:0;
+	width:100%;
+	/* line-height:700%; */
+	height:70%;
+	background-color:white;
+	z-index:1;
+	box-shadow:0 2px 15px rgba(0,0,0,1) ;
+	/* -webkit-box-shadow:0 2px 15px rgba(0,0,0,1) ; */
+}
+
+#popOut{
+	position:absolute;
+	display:inline;
+	border: solid 1px;
+	width: 100%;
+	line-height:150%
+}
+
+div#map-yard{
+	position:absolute;
+	width: 100%;
+	height: 95%;
+	left: 0;
+	top: 5%;
+	z-index:-1;
+}
+
+.keyHint{
+	color:gray;
+	text-align: right;	
+	right:0;
+	position: absolute	
+	/* display:inline */
+}
+
+#popOut{
+	display:inline;
+	position:absolute;
+	width:50%;
+	left:25%;
+	z-index:2;
+	text-align:left;
+	line-height:100%;
+	
+}
+
+.close-button{
+	position:absolute;
+	bottom:0%;
+	text-align:center;
+	display: block;
+	width:10%;
+	left:45%;
+	z-index:3
+}
+.close-button:hover{
+	cursor:pointer;
+}
+
+#miniBar{
+	position: absolute;
+	top:0;
+	left:0;
+	width: 100%;
+	background-color:white;
+	display: block;
+	box-shadow:0 2px 15px rgba(0,0,0,1) ;
+}
+
+#miniBar input{
+	position:absolute;
+	width: 100%;
+	text-align:center;
+	font-size: large;
+	font-family:'Oswald', sans-serif;	
+}
+
+#miniBar :hover{
+	background-color: #B5DA47;
+}
+
+a:hover{
+	color: #B5DA47;
+	cursor:pointer;
+}
+
+.credit {
+	position: absolute;	
+	width : 20%;
+	left : 40%;
+	margin: 0 0 0 0;
+	bottom:0;
+	color: gray;
+	text-align:center;
+}
+.credit a{
+	color:gray;
+}
+
+#infoPanel{
+	position:absolute;
+	display:block;
+	right:1%;
+	bottom:1%;
+	/* margin:0 auto;	 */
+	padding:1% 1% 1% 1%;
+	width:auto;
+	background-color:white;
+	box-shadow:0 2px 15px rgba(0,0,0,1) ;
+	font-family:'Oswald', sans-serif;
+	font-size:large;
+}
+#infoPanel img{
+	max-height:30px;
+	padding-right: 5px;
+}
+img.close{
+	/* position:absolute; */
+	display:inline;
+	right:0;	
+}
+.close:hover{ cursor:pointer;}
+
+.random:hover{
+	cursor:pointer;
+}

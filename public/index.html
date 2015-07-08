@@ -1,0 +1,50 @@
+<!doctype html>
+<html><meta charset="utf-8">
+<title>SocialPhobia</title>
+<head>
+<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="/stylesheets/home.css">
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script> -->
+<!-- <script src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script> -->
+<!-- <script src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.6/underscore-min.js"></script> -->
+<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min.js"></script> -->
+<script src="/javascripts/jquery-2.1.4.js"></script>
+<script src="/javascripts/underscore.js"></script>
+<script src="/javascripts/backbone.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+</head>
+<body>
+<div id='miniBar'><input type='text' placeholder='search'></input></div>
+<!-- <script type='text/template' id='miniBar-template'>    
+	movie name: <%= title %>     
+</script> -->
+
+<script type='text/template' id='infoPanel-template'> 
+	<div id='infoPanel' >		
+	</div>
+</script>
+
+<script id='autoComplete' type='text/template'><%= complete %></script>
+
+<script type='text/template' id='listItem-template'> 
+	<li><img src=<%= image %> ></img><%= title %><img src='/images/close.png' class='close'></img></li>
+</script>
+
+<div id="panel">
+	<h3>What's going on around you</h3>
+	<div id='dock'>
+		<input id="bar" type="input" type="text" placeholder="movie title"/>
+		<div id='popOut'></div>
+	</div>
+	<h1><a>next</a></h1>	
+	<p class='random'>random movie</p>
+	<img class='close-button' src='/images/arrow.png'></img>
+	<p class='credit'>written by <a href = "http://zh.azurewebsites.net">Zhoufan He</a></p>
+</div>
+
+<script src="/javascripts/mainScript.js"></script>
+<!-- <script src = "/javascripts/map.js"></script> -->
+<div id='map-yard'></div>
+
+</body>
+</html>
