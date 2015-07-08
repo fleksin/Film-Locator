@@ -76,8 +76,8 @@ div#map-yard{
 	bottom:0%;
 	text-align:center;
 	display: block;
-	width:6%;
-	left:47%;
+	height:5%;
+	left:45%;
 	z-index:3
 }
 .close-button:hover{
