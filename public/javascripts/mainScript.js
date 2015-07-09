@@ -145,6 +145,8 @@ var autoView = Backbone.View.extend({
 		
 	predict:function(e){
 		
+		console.log(e.keyCode);
+	
 		if(e.keyCode == 13)this.search();
 		
 		if(e.keyCode == 9 || e.keyCode == 40) this.fill();
@@ -190,10 +192,10 @@ var autoView = Backbone.View.extend({
 		this.popout.hide();
 	},
 	
-	search:function(input){
+	search:function(randominput){
 		var stat = false;
 		var moviename = this.popout.text();		
-		if(input.length) moviename = input;
+		if(randominput) moviename = randominput;
 		if(moviename){
 			if(count>6)count = 0;			
 			var res = fs.where({title:moviename});
@@ -214,11 +216,12 @@ var autoView = Backbone.View.extend({
 		
 		if(stat){
 			this.$('#bar').val('');
+			this.popout.empty();
 			this.popout.hide();
 			this.closePanel();
 		}
 		else
-			alert("Can't find the result on google Map!");
+			console.log("Can't find the result on google Map!");
 	},
 	
 	showPanel: function(){
