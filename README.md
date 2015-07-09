@@ -10,6 +10,9 @@ On the right-lower side of the map, there is a list of movie titles you have sea
 to delete any one of the records. it will automatically remove the pin on the map.
 <br>
 
+<br>
+
+
 Featuring 'random movie' button!
 click it to get a random movie title and pin it on the map.<br>
 <br>
@@ -20,6 +23,8 @@ It's the first time I use backbone, althought I have used JQuery before.<br>
 PS: I haven't make any adjustment for mobile device, so if you are viewing it on your phone, it doesn't comes out as the best.<br>
 <br>
 nodejs express framework for back-end:<br>
+<br>
+Some of the locations can not be found by using Geocoder methods from google map. I haven't tried other methods yet.
 
 
 
