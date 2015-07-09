@@ -12,9 +12,9 @@ to delete any one of the records. it will automatically remove the pin on the ma
 
 Featuring 'random movie' button!
 click it to get a random movie title and pin it on the map.
-
-Framework used: <br>
 <br>
+Framework used: <br>
+
 Backbone.js for front-end:<br>
 It's the first time I use backbone, althought I have used JQuery before.<br>
 PS: I haven't make any adjustment for mobile device, so if you are viewing it on your phone, it doesn't comes out as the best.<br>
