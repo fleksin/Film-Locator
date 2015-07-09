@@ -65,6 +65,9 @@ function pinByGeocoder(loc, name, image, fullinfo){
 			//map.center(result[0].geometry.location);
 			markers.push(marker);	
 			
+			map.setCenter(marker.getPosition());
+			map.setZoom(11);
+			
 			var contentString = '<div>title : ' + fullinfo.get('title') + ' <br>' 
 								 + 'actor_1 : ' + fullinfo.get('actor_1') + '<br>'
 								 + 'locations :' + fullinfo.get('locations') + '<br>'							
@@ -82,6 +85,8 @@ function pinByGeocoder(loc, name, image, fullinfo){
 			
 			google.maps.event.addListener(marker, 'click', function() {
 				infowindow.open(map,marker);
+				map.setCenter(marker.getPosition());
+				map.setZoom(14);
 			});
 			
 			return true;
