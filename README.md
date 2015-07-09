@@ -1,4 +1,4 @@
-# Filmlocator
+# Film-locator
 Code challenge --SF movie
 
 This is a web application for showing where the films are.
