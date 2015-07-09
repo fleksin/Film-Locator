@@ -14,6 +14,7 @@ Framework used: <br>
 <br>
 Backbone.js for front-end:<br>
 It's the first time I use backbone, althought I have used JQuery before.<br>
+PS: I haven't make any adjustment for mobile device, so if you are viewing it on your phone, it doesn't comes out as the best.<br>
 <br>
 nodejs express framework for back-end:<br>
 
