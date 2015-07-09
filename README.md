@@ -11,7 +11,7 @@ to delete any one of the records. it will automatically remove the pin on the ma
 <br>
 
 Featuring 'random movie' button!
-click it to get a random movie title and pin it on the map.
+click it to get a random movie title and pin it on the map.<br>
 <br>
 Framework used: <br>
 
