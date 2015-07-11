@@ -165,6 +165,7 @@ var autoView = Backbone.View.extend({
 		}
 		else{
 			this.popout.hide();
+			this.popout.empty();
 		}
 		
 	
@@ -200,7 +201,7 @@ var autoView = Backbone.View.extend({
 	search:function(randominput){
 		var stat = false;
 		var moviename = this.popout.text();		
-		if(randominput) moviename = randominput;
+		if(typeof randominput == 'string' ) moviename = randominput;
 		if(moviename){
 			if(count>6)count = 0;			
 			var res = fs.where({title:moviename});
