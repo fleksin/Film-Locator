@@ -1,0 +1,76 @@
+@charset "utf-8";
+#myFace{
+	position:absolute;
+	display:flex;
+	width: 500px;
+	height: 200px;
+	left:50%;
+	margin-left: -250px;
+	top:50%;
+	margin-top: -100px;
+	background:#D8D8D8;
+	z-index:1;
+}
+
+ #headshot{
+	position: relative;
+	display: block;
+	height: inherit;
+}
+
+#back{
+	position: absolute;
+	display: none;
+	bottom : 1%;
+	left: 1%;	
+	height: 50px;
+}
+
+#panel{
+	position: absolute;
+	display: none;
+	height: 100%;
+	width: 85%;
+	right: -10%;
+	top: 0;
+	background:white;
+	-webkit-box-shadow: -5px 1px 32px -11px rgba(122,60,13,1);
+	-moz-box-shadow: -5px 1px 32px -11px rgba(122,60,13,1);
+	box-shadow: -5px 1px 32px -11px rgba(122,60,13,1);
+	z-index:-1;
+	opacity: 0;
+}
+
+.panel {
+	display: block;
+	margin:15px;
+	
+}
+
+div#in{
+	display: flex;
+	flex-direction: column;
+	width: 60%;
+	margin: auto;
+}
+
+#form-signin{
+	margin: 3%;
+}
+
+div.container{
+	display :none;
+	position: absolute;
+	max-width: 350px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 2;
+	background:rgba(255, 153, 70,0.9);
+}
+
+[type = 'logging']{
+	position: fixed;
+	right: 1%;
+	bottom: 1%;
+}

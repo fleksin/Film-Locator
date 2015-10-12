@@ -1,0 +1,11 @@
+@charset "utf-8";
+#myFace{
+	position:absolute;
+	width: 500px;
+	height: 200px;
+	left:50%;
+	margin-left: -250px;
+	top:50%;
+	margin-top: -100px;
+	background:#D8D8D8;
+}

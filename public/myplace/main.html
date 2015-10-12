@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Place</title>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/react.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/JSXTransformer.js"></script> -->
+<script src="javascripts/jquery-2.1.4.js"></script>
+<!-- <script src="https://cdnjs.loudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script> --><!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link href="myplace.css" rel="stylesheet" type="text/css">
+<script src = 'javascripts/settings.js'></script>
+</head>
+
+<body>
+  <div id = 'myFace'><img id = 'headshot' src='images/headshot.png'></img></div>
+  <img id = 'back' src= 'images/back.png'> </img>
+  <div id = 'panel'></div>
+  <div class='container'>
+  <jiaForm id="form-signin" action='http://fleksin.com:3000/users/login' method = 'post'>
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input name = "email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input name = "ps" type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button id = 'enter' class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  </jiaForm>
+  </div>
+  <template id = 'logout' style = 'display:none'>
+	<p id='log_out' type = 'logging' onclick = 'logout()' class = 'label label-warning'> log out</p> 
+  </template> 
+  <template id = 'login' style = 'display:none'>
+	<p id='showLoginDiv' type = 'logging' onclick = 'logIn_sign()' class = 'label label-warning'>log in</p>
+  </template>
+  <div id='btn-area'></div>
+  
+</body>
+<script src = 'javascripts/script.js'></script>
+<script src = 'javascripts/myFrameWork.js'></script>
+</html>

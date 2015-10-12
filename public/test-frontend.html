@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src = 'jquery-2.1.4.js'></script>
+</head>
+<body>
+<input type='text' placeholder = 'leave comments' id = 'collectionName'></input>
+<input type='button' id= 'create' value = 'create'></input> <br>
+<input type='button' id= 'showCollections' value = 'showCollections'></input> <br>
+<input type='button' id= 'test' value = 'test'></input> <br>
+
+<br>
+<div id='myDiv' style = "position: absolute; bottom: 0; width:100%;min-height: 5% ;background-color:gray; z-index = 10;"></div>
+</body>
+<script>
+var getRate = function(){
+	$.ajax({
+		method: 'POST',
+		url:'http://fleksin.com:3000/db/findweb',
+		data: JSON.stringify({"url": "Manhattan"}),
+		dataType: 'JSON',
+		contentType: "application/json",	
+		success: function(data){
+			for(var i = 0; i < data.length; i++){
+				//$('#myDiv').append('<p>' + data[i].name + '<p>');
+			}
+			console.log('successed!' + data[0].name);
+			console.dir(data);
+		},
+		error: function(jqXHR, textStatus, errorThrown){
+			console.log(errorThrown);
+		}
+	});
+};
+
+var createCollection = function(name){
+	$.ajax({
+		method: 'POST',
+		url:'http://fleksin.com:3000/db/create',
+		data: JSON.stringify({"name": name}),
+		dataType: 'JSON',
+		contentType: "application/json",	
+		success: function(data){
+			console.log('successed!');			
+		},
+		error: function(jqXHR, textStatus, errorThrown){
+			console.log(errorThrown);
+		}
+	});
+};
+
+var showCollections = function(){
+	$.ajax({
+		method: 'GET',
+		url:'http://fleksin.com:3000/db/',
+		//data: JSON.stringify({"name": name}),
+		//dataType: 'JSON',
+		//contentType: "application/json",	
+		success: function(data){
+			$('#myDiv').html("");
+			for(var i = 0; i < data.length-1; i++){
+				$('#myDiv').append('<p>' + data[i] + '<p>');
+			}
+			console.log('successed!');
+			
+		},
+		error: function(jqXHR, textStatus, errorThrown){
+			console.log(errorThrown);
+		}
+	});
+};
+
+//UI Logic
+//$('#test').click(test);          //test
+
+$('#create').click(function(){                             //create collection
+	var name = $('#collectionName').val();
+	createCollection(name);
+	$('#CollectionName').val("");
+});
+	
+$('#showCollections').click(showCollections); 				//show collections
+</script>
+</html>

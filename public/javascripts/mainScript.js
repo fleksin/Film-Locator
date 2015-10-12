@@ -19,7 +19,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 var film = Backbone.Model.extend({
 });
 
-var URL = "/yitu-d5am.json";
+var URL = "https://data.sfgov.org/resource/yitu-d5am.json";
 
 //define the collection
 var films = Backbone.Collection.extend({
@@ -28,7 +28,7 @@ var films = Backbone.Collection.extend({
 });
 
 var fs = new films();
-var dataReady = false;
+// var dataReady = false;
 var Lats;
 var Lngs;
 
@@ -99,11 +99,9 @@ function pinByGeocoder(loc, name, image, fullinfo){
     });	
 };
 
-fs.fetch({ 
-   // url: URL, 
+fs.fetch({  
     success: function(){
 		dataReady = true
-		//pinByGeocoder();
 	},
     error: function(){
        console.log('There was some error in loading and processing the JSON file');
@@ -191,7 +189,6 @@ var autoView = Backbone.View.extend({
 	
 	closePanel: function(){
 		this.$('div#panel').slideUp("slow");
-		// if(dataReady)console.log(fs.at(8).get('title'));
 	},
 	
 	render:function(){
@@ -258,37 +255,6 @@ var autoView = Backbone.View.extend({
 	
 });
 
-// var infoPanel = Backbone.View.extend({
-	
-	// //el: $('body'),
-	
-	// infoPanel: $('#infoPanel'),
-	
-	// infoTemplate: _.template($('#infoPanel-template').html()),
-	
-	// listTem: _.template($('#listItem-template').html()),
-	
-	// initialize: function(){
-		// console.log(this.template());
-		// $('body').append(this.template());
-		
-	// },
-	
-	// events: function(){
-		// 'click h1 a': 'showinfo',
-		// 'keyup body': 'checkKey',
-	// },
-	
-	// showinfo:function(){
-		
-	// },
-	
-	// checkKey::function(e){
-		// if(e.keyCode == 13) this.showinfo();
-	// },
-	
-	// render:function(){},
-// });
 
 $(document).ready(function(){	
 	var av = new autoView();

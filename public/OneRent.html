@@ -1,0 +1,31 @@
+<html>
+<head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/JSXTransformer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
+	<script src="/javascripts/jquerysession.js"></script>
+	<link rel = 'stylesheet' href = '/stylesheets/onerent.css'>
+	<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/glacial-indifference" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/railway-sans" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/dejavu-serif" rel="stylesheet" type="text/css"/>
+</head>
+<body>	
+	<div id = 'menuBar'>
+		<img class='logo' src = '/images/onerent.jpg'>
+		<input class = 'searchBar' type = 'text' placeholder = 'location' value = 'mountain view' />
+		<button id='search'>go</button>
+		</div>
+	<div id='content'>
+		<div id = 'prompt' >
+			<img id = 'start' src='/images/onerent.jpg'>
+			<p id = 'opening'>This is a demonstration for onerent project, click go to start <p>
+		</div>
+	</div>
+	<div id='side'><div id='sideContent'></div><hint>click to return</hint></div>
+	<script type="text/jsx;harmony=true" src = '/javascripts/onerent.js'></script>
+	<!-- <script type="text/jsx;harmony=true" src = '/onerent.js'></script> -->
+</body>
+
+</html>
