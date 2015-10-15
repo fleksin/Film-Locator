@@ -30,6 +30,45 @@ var logIn = function(){
 	
 };
 
+var makeEntry = function(){
+	var jiaEntry = document.createElement('jiaEntry');
+	this.body = jiaEntry;
+	//this.test = function(){alert("Don't go gentle into that good night");}
+	this.addDemo = function(media){
+		var demo = document.createElement('demo');
+		$(demo).append(media);
+		$(this.body).append(demo);
+	}
+	this.addTitle = function(){
+		var tag;
+		var title;
+		if(arguments.length == 1) title = arguments[0];
+		else if(arguments.length > 1) {
+			tag = arguments[0];
+			title = arguments[1];
+		}
+		if(tag == undefined) tag = 'div';
+		var title_ele= document.createElement(tag);
+		$(title_ele).attr('class','title');
+		$(title_ele).append(title);
+		$(this.body).append(title_ele);
+	}
+	this.addContent = function(){
+		var tag;
+		var content;
+		if(arguments.length == 1) content = arguments[0];
+		else if(arguments.length > 1) {
+			tag = arguments[0];
+			content = arguments[1];
+		}
+		if(tag == undefined) tag = 'div';
+		var content_ele = document.createElement(tag);
+		$(content_ele).attr('class', 'content');
+		$(content_ele).append(content);
+		$(this.body).append(content_ele);
+	}
+}
+
 $(document).ready(function(){
 	console.log('jia');
 	$('jiaForm').keypress(function(e){

@@ -1,9 +1,12 @@
 var express = require('express');
 var router = express.Router();
+var settings = require('../settings');
 
-var url = 'mongodb://fleksin.com:27017/test';
+// var url = 'mongodb://fleksin.com:27017/test';
+var url = settings.dbhost;
 var mongoskin = require('mongoskin');
 //var db = require('mongoskin').db(url);
+var db = mongoskin.db(url,{native_parser: true});
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -15,7 +18,6 @@ router.post('/login', function(req,res,next){
 	var ps = req.body.ps;
 	var id = 'no such user';
 	console.log("email: " + email + " password: " + ps);
-	var db = mongoskin.db(url,{native_parser: true});
 	db.collection('user').find({email:email, password:ps}).toArray(function(err, items){
 		if(items.length > 1){
 			console.log('duplicate user');

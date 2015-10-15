@@ -13,6 +13,7 @@ var db = require('./routes/db');
 var OneRent = require('./routes/OneRent');
 var midTest = require('./routes/test');
 var settings = require('./settings');
+var projects = require('./routes/projects');
 
 var app = express();
 //app.set('port', process.env.PORT || 80);
@@ -41,6 +42,7 @@ app.use('/users', users);
 app.use('/db', db);
 app.use('/onerent', OneRent);
 app.use('/test', midTest);
+app.use('/projects', projects);
 
 
 // catch 404 and forward to error handler

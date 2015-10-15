@@ -6,6 +6,7 @@ var entries;
 var ID;
 var loginBtn = $('template#login').html();
 var logoutBtn = $('template#logout').html();
+var labels = {};
 
 var checkStatus = function(){
 	if(localStorage.id == undefined){
@@ -26,7 +27,7 @@ if(typeof(Storage) !== "undefined") {
 
 
 var topleft = function() {	
-	$(this).animate({
+	$('#myFace').animate({
 		'top': '2.5%',
 		'left': '1%',	
 		'margin': '0px',
@@ -80,20 +81,37 @@ var panelOut = function(){
 var loadEntries = function(){
 	if(entries == undefined){
 		$.ajax({
-			url: 'http://thirdtry.cloudapp.net:28017/test/projects/',
+			url: settings.host + '/projects/',
 			type: 'get',
-			dataType: 'jsonp',
-			jsonp: 'jsonp', // mongod is expecting the parameter name to be called "jsonp"
+			//dataType: 'jsonp',
+			//jsonp: 'jsonp', // mongod is expecting the parameter name to be called "jsonp"
 			success: function (data) {
-				console.log('success', data.rows[0].title);
+				console.log('success', data[0].title);
 				entries = "<div id = 'in'> </div>" ;
 				$('#panel').append(entries);
-				for(var i in data.rows){
-					var entry = "<div class ='panel panel-default'><div class='panel-heading'> <h3 class = 'panel-title'>"
-								+ data.rows[i].title + " </h3></div>"
-								+ "<div class='panel-body'>  " + data.rows[i].description 
-								"  </div></div>";
-					$('div#in').append(entry);
+				for(var i in data){
+					// var entry = "<div class ='panel panel-default'><div class='panel-heading'> <h3 class = 'panel-title'>"
+								// + data[i].title + " </h3></div>"
+								// + "<div class='panel-body'>  " + data[i].description 
+								// "  </div></div>";
+					var entry = new makeEntry();
+					//entry.test();					
+					entry.addTitle('h1',data[i].title);
+					if(data[i].demo != undefined) {
+						entry.addDemo(data[i].demo);
+					}
+					entry.addContent('p', data[i].description);					
+					
+					for(var j in data[i].Labels){
+						console.log(data[i].Labels[j]);
+						labels[data[i].Labels[j]] = 'true';
+					}				
+					$('div#in').append(entry.body);
+				}
+				for(var label in labels){
+					var label_entry = "<span class='label label-info' type = 'label' style = 'margin:2px' >" 
+										+ label + "</span>";
+					$('#labels').append(label_entry);
 				}
 			},
 			error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -128,12 +146,13 @@ var changeBtn = function(){
 	});
 }
 $(document).ready(function(){
+	$('#panel').hide();
 	changeBtn();
 	if(ID != undefined){
 		console.log(ID);
 		$('#log_out').append(' | ' +ID);
 	};
-	$('#myFace').click(topleft);
+	//$('#myFace').click(topleft);
 	$('#back').click(reverse);
 	//$('#showLoginDiv').click(logIn_sign);
 	$('#enter').click(logIn);
