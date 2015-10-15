@@ -166,11 +166,15 @@ div.front, div.back{
 	backface-visibility: hidden;
 	position:absolute;
 	height: 100%;
-	width:100%;
+	max-width:100%;
 }
 
 div.back {
 	transform: rotateX(180deg);
+}
+
+div.back h1{
+	max-width:100%;
 }
 
 div#wrapper{
