@@ -29,3 +29,9 @@ jiaEntry .content{
 	margin: 3%;
 	/* border:  */
 }
+
+jiaEntry span{
+	margin-right: 5%;
+    color: #999966;
+    text-align: right;
+}

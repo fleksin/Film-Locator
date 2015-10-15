@@ -100,6 +100,7 @@ var loadEntries = function(){
 					if(data[i].demo != undefined) {
 						entry.addDemo(data[i].demo);
 					}
+					entry.addEle('span', data[i].date.month + ' ' + data[i].date.year);
 					entry.addContent('p', data[i].description);					
 					
 					for(var j in data[i].Labels){

@@ -67,6 +67,12 @@ var makeEntry = function(){
 		$(content_ele).append(content);
 		$(this.body).append(content_ele);
 	}
+	
+	this.addEle = function(tag, content){
+		var content_ele = document.createElement(tag);
+		$(content_ele).append(content);
+		$(this.body).append(content_ele);
+	}
 }
 
 $(document).ready(function(){
