@@ -5,9 +5,10 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  //res.render('index', { title: 'Express' });
   //res.location('./index.html');
   //res.sendFile('./package.json');
+  res.redirect('/myplace/main.html');
 });
 
 module.exports = router;
