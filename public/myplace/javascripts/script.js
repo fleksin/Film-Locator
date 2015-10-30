@@ -101,8 +101,13 @@ var loadEntries = function(){
 						entry.addDemo(data[i].demo);
 					}
 					entry.addEle('span', data[i].date.month + ' ' + data[i].date.year);
-					entry.addContent('p', data[i].description);					
-					
+					entry.addContent('p', data[i].description);	
+					if(data[i].link != undefined && data[i].link !== ''){
+						var link = document.createElement('div');
+						$(link).css('margin', '0 6px 3px 3px');
+						$(link).append("<a style='float:right' href = '" + data[i].link +"'>link  <img src = 'images/portal.png' style= 'height:20px;width:auto;float:right'></img>");
+						$(entry.body).append(link);
+					};
 					for(var j in data[i].Labels){
 						console.log(data[i].Labels[j]);
 						labels[data[i].Labels[j]] = 'true';

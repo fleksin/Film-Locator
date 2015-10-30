@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
 	
 router.post('/search', function(req, res, next) {	
 	var loc = req.body.word;
-	db = require('mongoskin').db(url);
+	//db = require('mongoskin').db(url);
 	db.collection('newslscrapes').find({location: loc}).limit(100).toArray(function(err, result){
 		if (err) {throw err;  console.log('error');}
 		if(result.length == 0) {console.log('no match'); res.send('no match');}

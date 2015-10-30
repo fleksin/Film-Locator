@@ -1,7 +1,59 @@
 doctype html
 html
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    title= 'MyTailer'
+    link(rel='stylesheet', href='/stylesheets/bootstrap/css/bootstrap.min.css')
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    script(src='/javascripts/jquery-2.1.4.js')
+    style.
+       .alert{
+          max-width: 70%;
+          margin: 0px auto 10px auto;
+        }
+       body{
+         background:url('/images/fabric.jpg');
+         background-size: contain;
+       }
+       form{
+         background: rgba(235,235,235,0.7);		 
+         border-radius: 10px 10px 10px 10px;
+         -moz-border-radius: 10px 10px 10px 10px;
+         -webkit-border-radius: 10px 10px 10px 10px;
+         border: 0px solid #000000;
+       }
   body
-    block content
+    nav(class='navbar navbar-inverse navbar-fixed-top')
+      .container
+        .navbar-header
+          button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar")
+            span(class="sr-only")= 'Toggle navigation'
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a(class="navbar-brand" href="/myTailer") My Tailer
+        div(id="navbar" class="collapse navbar-collapse")
+          ul(class="nav navbar-nav")
+            li(class="active")
+               a(href="#")= 'Home'
+            li               
+               if session.user
+                  a(href="/myTailer/logout")= 'Log Out'
+               else 
+                  a(href="/myTailer/login")= 'Log In/Sign Up'
+            li(style='color:white;padding:15px') 
+                if session.user
+                   = session.user.email
+                else 
+                   = 'Hey New Guy!'
+    .container
+     .starter-template(style='padding:40px 0px')
+    if(session.flash)	
+       if(session.flash.success)        
+          div(class='alert alert-success')= session.flash.success
+       else if(session.flash.error)
+          div(class='alert alert-danger')= session.flash.error
+    block content    
+    
+    footer 
+      //p= JSON.stringify(session)
+      script(src='/stylesheets/bootstrap/js/bootstrap.min.js')

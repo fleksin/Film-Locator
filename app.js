@@ -5,18 +5,20 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var cookieSession = require('cookie-session');
+// var cookieSession = require('cookie-session');
+var mongoStore = require('connect-mongo')(session);
+var settings =  require('./settings');
+var flash = require('connect-flash');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var db = require('./routes/db');
 var OneRent = require('./routes/OneRent');
 var midTest = require('./routes/test');
-var settings = require('./settings');
 var projects = require('./routes/projects');
+var myTailer = require('./routes/myTailer');
 
 var app = express();
-//app.set('port', process.env.PORT || 80);
 // view engine setup
 app.set('views', path.join(__dirname, 'views/'));
 app.set('view engine', 'jade');
@@ -29,13 +31,22 @@ app.use(cookieParser());
 app.use(session({
 	secret: settings.secret,
 	resave: 'true',
-	saveUninitialized: 'false'
+	saveUninitialized: 'false',
+	store: new mongoStore({url: settings.dbhost, db: 'test'})
 }));
 /* app.use(cookieSession({
 	secret: settings.secret
 })); */
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(cookieParser('secret'));
+//app.use(session({cookie: { maxAge: 60000 }}));
+app.use(flash());
+app.use(function(req,res,next){
+    res.locals.session = req.session;
+	//req.session.flash = null;
+    next();
+});
 
 app.use('/', routes);
 app.use('/users', users);
@@ -43,7 +54,7 @@ app.use('/db', db);
 app.use('/onerent', OneRent);
 app.use('/test', midTest);
 app.use('/projects', projects);
-
+app.use('/myTailer', myTailer);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

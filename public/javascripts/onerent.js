@@ -84,7 +84,7 @@ $('button#search').click(function(){
 	var keyword = ' '+$('.searchBar').val();
 	alert('input: ' + keyword);	
     $.ajax({
-      url: "http://fleksin.com:3100/onerent/search",
+      url: "http://fleksin.com:3000/onerent/search",
       dataType: 'json',
       cache: false,
 	  method: 'POST',
