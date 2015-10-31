@@ -9,13 +9,16 @@ var bodyParser = require('body-parser');
 // var db = mongoskin.db(url,{native_parser: true});
 
 var user = require('../model/user');
-var store = require('../model/store');
+var store = require('../model/item');
 
 /* GET users listing. */
 router.get('/',function(req, res, next) {
+	console.log('in root route: ' + Date());
 	if(!req.session.user)req.session.flash = null;
+	console.log('before store.get: ' + Date());
 	store.get(null, function(err, stores){
-		if(err) console.log('Error at root get: '+err);
+		console.log('inside store.get callback: ' + Date());
+		if(err) console.log('Error at myTailer/->store.get: '+err);
 		//console.log('get the stores:');
 		//console.log(stores);
 		res.render('plaza', { data: stores });
