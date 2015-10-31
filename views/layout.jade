@@ -36,18 +36,18 @@ html
             li(class="active")
                a(href="#")= 'Home'
             li               
-               if session.user
+               if session&&session.user
                   a(href="/myTailer/logout")= 'Log Out'
                else 
                   a(href="/myTailer/login")= 'Log In/Sign Up'
             li(style='color:white;padding:15px') 
-                if session.user
+                if session&&session.user
                    = session.user.email
                 else 
                    = 'Hey New Guy!'
     .container
      .starter-template(style='padding:40px 0px')
-    if(session.flash)	
+    if(session&&session.flash)	
        if(session.flash.success)        
           div(class='alert alert-success')= session.flash.success
        else if(session.flash.error)
