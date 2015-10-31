@@ -2,7 +2,7 @@ var mongoskin = require('mongoskin');
 var settings = require('../settings');
 var url = settings.dbhost;
 
-
+var db = mongoskin.db(url, {native_parser: true});
 
 var User = function(user){
 	this.email = user.email;
@@ -18,7 +18,6 @@ User.prototype.save = function save(){
 	console.log('in user.js:');
 	console.dir(user);
 	
-	var db = mongoskin.db(url, {native_parser: true});
 	db.collection('users').insert(user,function(err,user){
 		db.close();
 		if(err) console.log(err);
@@ -26,7 +25,6 @@ User.prototype.save = function save(){
 }
 
 User.get = function(username, callback){
-	var db = mongoskin.db(url, {native_parser: true});
 	db.collection('users').find({email:username}).toArray(function(err, users){
 		console.log('the query is ' + username);
 		db.close();

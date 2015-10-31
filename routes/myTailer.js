@@ -12,16 +12,22 @@ var user = require('../model/user');
 var item = require('../model/item');
 
 /* GET users listing. */
-router.get('/',function(req, res, next) {
+router.get('/',function(req, res) {
+	//if(err) console.log('myTailer.get error: ' + err);
 	console.log('in root route: ' + Date());
 	if(!req.session.user)req.session.flash = null;
 	console.log('before item.get: ' + Date());
 	item.get(null, function(err, items){
 		console.log('inside item.get callback: ' + Date());
-		if(err) console.log('Error at myTailer/->item.get: '+err);
+		if(err) {
+			console.log('Error at myTailer/->item.get: '+err);
+			item = [];
+		}		
 		//console.log('get the stores:');
 		//console.log(stores);
 		console.log('before item.get->render: ' + Date());
+		//var Items = [];
+		//if(item) Items = items
 		res.render('plaza', { data: items });
 		console.log('after render: ' + Date());
 	});	
