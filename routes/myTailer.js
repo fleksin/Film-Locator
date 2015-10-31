@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 // var db = mongoskin.db(url,{native_parser: true});
 
 var user = require('../model/user');
-var store = require('../model/store');
+var store = require('../model/item');
 
 /* GET users listing. */
 router.get('/',function(req, res, next) {
