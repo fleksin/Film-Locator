@@ -1,4 +1,4 @@
 module.exports = {
 	secret: 'Mountains',
-	dbhost: 'mongodb://fleksin.com:27017/test'
+	dbhost: 'mongodb://thirdtry.cloudapp.net:27017/test'
 }
