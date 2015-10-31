@@ -6,6 +6,9 @@ html
     meta(name="viewport" content="width=device-width, initial-scale=1")
     script(src='/javascripts/jquery-2.1.4.js')
     style.
+       .panel{
+          max-width:600px;
+       }
        .alert{
           max-width: 70%;
           margin: 0px auto 10px auto;
@@ -21,6 +24,12 @@ html
          -webkit-border-radius: 10px 10px 10px 10px;
          border: 0px solid #000000;
        }
+       @media only screen  
+          and (max-device-width: 736px) { 
+               .panel{
+                  max-width: 80%;
+               }
+          }
   body
     nav(class='navbar navbar-inverse navbar-fixed-top')
       .container
